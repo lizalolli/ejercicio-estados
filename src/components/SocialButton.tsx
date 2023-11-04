@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const SocialButton = ({ icon }) => {
 
   return (
-    <div className='p-3 border border-black rounded-circle mx-1'>
+    <button className='p-3 border border-black rounded-circle mx-1 text-black bg-white'>
       <FontAwesomeIcon icon={icon} size="2x"/>
-    </div>
+    </button>
   )
 }
