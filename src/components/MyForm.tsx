@@ -44,34 +44,37 @@ export const MyForm = ({setErrors}) => {
  
     if (name.trim() === '' ){
       setErrors({
-        error: 'el campo "nombre" no puede estar vacío',
+        error: 'El campo "nombre" no puede estar vacío 😞',
         color: 'danger'
       })
     } else
+  
+    // if (password === confirmPassword && password.length && name.length && email.length){
+    //   setErrors({
+    //     error: '¡Te has registrado exitosamente! 😄',
+    //     color: 'success'
+    //   })
+    // } else
 
-    if (password === confirmPassword && password != '' && confirmPassword != ''){
+    if (!password.length){
       setErrors({
-        error: 'la password está bien',
-        color: 'success'
+        error: 'La contraseña no puede estar vacía 😠',
+        color: 'danger'
       })
     } else
-
-    // if (password === '' || confirmPassword ==='' ){
-    //   setErrors({
-    //     error: 'el campo "password" no puede estar vacío',
-    //     color: 'danger'
-    //   })
-    // }
 
     // if (password === confirm){
 
-    // } else
-
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       setErrors({
-        error: 'las passwords no coinciden',
+        error: 'Las contraseñas no coinciden 😞',
         color: 'danger'
       })
+    } else {
+      setErrors({
+        error: '¡Te has registrado exitosamente! 😄',
+        color: 'success'
+      });
     }
   }
  
@@ -80,13 +83,13 @@ export const MyForm = ({setErrors}) => {
       <div className='container'>
         <Form onSubmit={onSubmit}>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicName">
             {/* Name */}
             <Form.Control 
             type="text" 
             // name="name" así cuando es con sólo un estado
             name={name}
-            placeholder="Enter Name" 
+            placeholder="Tu nombre aquí" 
             onChange={onChangeName}
             />
           </Form.Group>
@@ -96,7 +99,7 @@ export const MyForm = ({setErrors}) => {
             type="email" 
             // name="email" así cuando es con sólo un estado
             name={email}
-            placeholder="Enter email"
+            placeholder="ejemplo@email.com"
             onChange={onChangeEmail}
             />
           </Form.Group>
@@ -104,23 +107,26 @@ export const MyForm = ({setErrors}) => {
             {/* Password */}
             <Form.Control 
             type="password" 
-            placeholder="Password" 
+            placeholder="Contraseña" 
             onChange={onChangePassword}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" controlId="formBasicPasswordConfirm">
           {/* Confirm Password */}
             <Form.Control 
             type="password" 
-            placeholder="Confirm Password" 
+            placeholder="Confirma la contraseña" 
+            onChange={onChangeConfirmPassword}
             />
           </Form.Group>
-          <Button 
-          variant="primary" 
-          type="submit"  
-          >
-            Submit
-          </Button>
+          <div className="d-grid gap-2 col-12 mx-auto">
+            <Button 
+            variant="success" 
+            type="submit"  
+            >
+              Registrarse
+            </Button>
+          </div>
         </Form>
       </div>
     </>

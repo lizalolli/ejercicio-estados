@@ -4,10 +4,6 @@ import MyAlert from './MyAlert'
 import { SocialButton } from './SocialButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// import { faFacebook } from '@fortawesome/free-solid-svg-icons'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-//  import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
 export const Registro = () => {
   //mandamos este useState como props a MyForm
   const [errors, setErrors] = useState({
@@ -26,8 +22,10 @@ export const Registro = () => {
         <MyForm
           setErrors={setErrors}
         ></MyForm>
+      <div className='container mt-2'>
         {errors.error!= '' && (<MyAlert errorMessage={errors.error} errorColor={errors.color}
-        ></MyAlert>)}
+          ></MyAlert>)}
+      </div>
     </div>
   )
 }
